@@ -2,32 +2,86 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.debug {
+  @apply border-2 border-dashed border-red-500;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
+.dashed-grid {
+  --grid-size: 40px;
+  --grid-strength: 1px;
+  --grid-dash: 4px;
+  --grid-gap: 10px;
+  --grid-color: #e5e5e530;
+  --paper-color: #0a0a0a;
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  background-color: var(--paper-color);
+
+  background-size:
+    var(--grid-gap) var(--grid-gap),
+    var(--grid-size) var(--grid-size);
+
+  background-image: linear-gradient(
       to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      transparent var(--grid-dash),
+      var(--paper-color) var(--grid-dash)
+    ),
+    linear-gradient(
+      to right,
+      var(--grid-color) var(--grid-strength),
+      transparent var(--grid-strength)
+    ),
+    linear-gradient(
+      to right,
+      transparent var(--grid-dash),
+      var(--paper-color) var(--grid-dash)
+    ),
+    linear-gradient(
+      to bottom,
+      var(--grid-color) var(--grid-strength),
+      transparent var(--grid-strength)
+    );
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.dashed-grid::after {
+  position: absolute;
+  content: "";
+
+  top: 0;
+  left: 0;
+
+  width: inherit;
+  height: 100vh;
+
+  background-image: radial-gradient(circle, transparent, transparent, #0a0a0a);
+
+  /* Add a blur and mask it out */
+  backdrop-filter: blur(4px);
+  mask: radial-gradient(circle, transparent, #0a0a0a 80%);
+}
+
+.overlay {
+  background-image: url(/noise.png);
+  pointer-events: none;
+
+  width: 100%;
+
+  inset: 0;
+  position: fixed;
+  background-size: 128px;
+  background-repeat: repeat;
+
+  mix-blend-mode: soft-light;
+  opacity: 0.25;
+
+  background-position: 0 0;
+  animation: noise 2s steps(10) infinite;
+}
+
+@keyframes noise {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
   }
 }
