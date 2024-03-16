@@ -38,14 +38,14 @@ export const Cloudd = () => (
   <Wrapper>
     <Canvas camera={{ position: [0, 60, 0] }}>
       <Inner />
-      <OrbitControls autoRotate autoRotateSpeed={0.5} maxPolarAngle={0} />
+      <OrbitControls autoRotate autoRotateSpeed={0.5} maxPolarAngle={0} enableZoom={false} />
     </Canvas>
   </Wrapper>
 )
 
 const Inner = () => {
   useFrame(({ camera }) => {
-    camera.position.y = -window.scrollY * 0.03 + 60
+    camera.position.y = -window.scrollY * 0.04 + 60
   })
 
   return (
