@@ -7,7 +7,8 @@ import "./globals.css"
 export default function Layout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
-      <body className={cn(GeistSans.variable, "bg-neutral-950")}>
+      <body
+        className={cn(GeistSans.variable, "overflow-x-hidden bg-neutral-950")}>
         {children}
         <div className="overlay z-50" />
       </body>

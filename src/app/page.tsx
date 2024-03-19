@@ -1,15 +1,19 @@
 import { Bento } from "@/components/bento"
 import { Scene } from "@/components/cloud"
+import { AuroraBackground } from "@/components/ui/aurora-background"
 
 export default function Page() {
   return (
     <main className="flex flex-col text-neutral-200">
       <div className="absolute top-[100vh] z-0 h-[100vh] w-full bg-gradient-to-b from-neutral-950 to-neutral-900" />
+      <div className="absolute inset-0 z-20 h-screen w-screen bg-gradient-to-b from-transparent from-90% to-neutral-950" />
 
-      <section className="flex h-[200vh] [-webkit-mask:linear-gradient(0deg,transparent,white_50%)] xl:-mb-[25vh]">
-        <div className="dashed-grid absolute inset-0 z-0 h-screen w-full" />
+      <AuroraBackground />
 
-        <div className="sticky inset-0 h-screen w-screen">
+      <section className="flex h-[250vh] xl:-mb-[50vh]">
+        <div className="dashed-grid absolute inset-0 z-10 h-screen w-full" />
+
+        <div className="sticky inset-0 z-30 h-screen w-screen">
           <Scene />
         </div>
       </section>
