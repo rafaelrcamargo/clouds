@@ -1,7 +1,8 @@
 "use client"
-import { cn } from "@/utils/cn"
+
 import React from "react"
-import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid"
+import Image from "next/image"
+import { motion } from "framer-motion"
 import {
   IconBoxAlignRightFilled,
   IconClipboardCopy,
@@ -9,8 +10,9 @@ import {
   IconSignature,
   IconTableColumn
 } from "@tabler/icons-react"
-import { motion } from "framer-motion"
-import Image from "next/image"
+
+import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid"
+import { cn } from "@/lib"
 
 export function Bento() {
   return (

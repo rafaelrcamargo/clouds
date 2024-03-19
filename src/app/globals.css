@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.debug {
-  @apply border-2 border-dashed border-red-500;
-}
-
 .dashed-grid {
   --grid-size: 40px;
   --grid-strength: 1px;

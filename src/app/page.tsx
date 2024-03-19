@@ -1,7 +1,7 @@
 import { Bento } from "@/components/bento"
-import { Cloudd } from "../components/cloud"
+import { Scene } from "@/components/cloud"
 
-export default function Home() {
+export default function Page() {
   return (
     <main className="flex flex-col text-neutral-200">
       <div className="absolute top-[100vh] z-0 h-[100vh] w-full bg-gradient-to-b from-neutral-950 to-neutral-900" />
@@ -10,7 +10,7 @@ export default function Home() {
         <div className="dashed-grid absolute inset-0 z-0 h-screen w-full" />
 
         <div className="sticky inset-0 h-screen w-screen">
-          <Cloudd />
+          <Scene />
         </div>
       </section>
 

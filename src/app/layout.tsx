@@ -1,13 +1,10 @@
-import { Inter } from "next/font/google"
-import "./globals.css"
-import { cn } from "@/utils/cn"
+import type { PropsWithChildren } from "react"
 import { GeistSans } from "geist/font/sans"
 
-export default function RootLayout({
-  children
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+import { cn } from "@/lib"
+import "./globals.css"
+
+export default function Layout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
       <body className={cn(GeistSans.variable, "bg-neutral-950")}>

@@ -1,20 +1,21 @@
 "use client"
 
-import * as THREE from "three"
-import { Canvas, useFrame } from "@react-three/fiber"
-import { Clouds, Cloud, OrbitControls } from "@react-three/drei"
+import type { PropsWithChildren } from "react"
 import { motion as m, useScroll, useTransform } from "framer-motion"
-import { FC, PropsWithChildren } from "react"
+import { Clouds, Cloud, OrbitControls } from "@react-three/drei"
+import { Canvas, useFrame } from "@react-three/fiber"
+import * as THREE from "three"
 
-const Wrapper: FC<PropsWithChildren> = ({ children }) => {
+const Wrapper = ({ children }: PropsWithChildren) => {
   const { scrollYProgress } = useScroll()
+
   const opacitySpan = useTransform(scrollYProgress, [0, 0.25], [1, 0])
   const opacityH1 = useTransform(scrollYProgress, [0, 0.5], [1, 0])
 
   return (
     <>
       <m.span
-        style={{ opacity: opacitySpan}}
+        style={{ opacity: opacitySpan }}
         className="absolute left-1/2 top-1/2 z-20 flex -translate-x-1/2 -translate-y-1/2 flex-wrap whitespace-pre text-4xl font-black text-neutral-200 drop-shadow-[0_0_8px_#0006] xl:-z-20 xl:flex-nowrap xl:gap-6 xl:text-8xl">
         The<span className="italic">future-proof</span>cloud.
       </m.span>
@@ -34,19 +35,22 @@ const Wrapper: FC<PropsWithChildren> = ({ children }) => {
   )
 }
 
-export const Cloudd = () => (
+export const Scene = () => (
   <Wrapper>
     <Canvas camera={{ position: [0, 60, 0] }}>
       <Inner />
-      <OrbitControls autoRotate autoRotateSpeed={0.5} maxPolarAngle={0} enableZoom={false} />
+      <OrbitControls
+        autoRotate
+        autoRotateSpeed={0.5}
+        maxPolarAngle={0}
+        enableZoom={false}
+      />
     </Canvas>
   </Wrapper>
 )
 
 const Inner = () => {
-  useFrame(({ camera }) => {
-    camera.position.y = -window.scrollY * 0.04 + 60
-  })
+  useFrame(({ camera }) => (camera.position.y = -window.scrollY * 0.04 + 60))
 
   return (
     <Clouds material={THREE.MeshBasicMaterial}>
