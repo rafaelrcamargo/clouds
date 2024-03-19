@@ -27,6 +27,7 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))"
       },
+      fontFamily: { sans: ["var(--font-geist-sans)"] },
       animation: { aurora: "aurora 60s linear infinite" },
       keyframes: {
         aurora: {

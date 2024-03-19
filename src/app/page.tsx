@@ -1,6 +1,6 @@
-import { Bento } from "@/components/bento"
-import { Scene } from "@/components/cloud"
 import { AuroraBackground } from "@/components/ui/aurora-background"
+import { Scene } from "@/components/cloud"
+import { Bento } from "@/components/bento"
 
 export default function Page() {
   return (
